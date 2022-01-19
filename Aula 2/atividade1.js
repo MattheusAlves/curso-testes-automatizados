@@ -9,19 +9,26 @@ class StringManipulations {
     }
 
     /**
-     * Returns the first substring that matches the given string
+     * Returns the first substring that matches the given string. If no matches is found, returns substring.
      * @param  {String} subStr  substring to be matched
      * @return {String}
      */
-    findFirstMatch(subStr) {}
-
+    findFirstMatch(subStr) {
+        const regex = new RegExp(subStr, "i")
+        
+        return this.string.match(regex)?.[0] ?? subStr
+    }
 
     /**
-     * Returns the last substring that matches the given string
+     * Returns the last substring that matches the given string.  If no matches is found, returns substring.
      * @param  {String} subStr  substring to be matched
      * @return {String}
      */
-    findLastMatch(subStr) {}
+    findLastMatch(subStr) {
+        const regex = new RegExp("(" + subStr + /)(?!.*\1)/, "gims")
+
+        return this.string.match(regex)?.[0] ?? subStr
+    }
 
     /**
      * Returns the fsubstring between two given other strings
@@ -29,7 +36,15 @@ class StringManipulations {
      * @param  {String} subStr2  ending of the match
      * @return {String}
      */
-    substringBetweenMatches(subStr1, subStr2) {}
+    substringBetweenMatches(subStr1, subStr2) {
+        const firstMatch = new RegExp(subStr1, "i").exec(this.string)
+        const secondMatch = new RegExp(subStr2, "i").exec(this.string)
+
+        if (firstMatch && secondMatch) {
+            return this.string.substring(firstMatch[0].length, secondMatch.index).trim()
+        }
+        return null
+    }
 
     /**
     Given the string attribute of the class, 
@@ -40,7 +55,9 @@ class StringManipulations {
     * @return {String}
     */
     both_ends() {
+        if (this.string.length < 2) return ""
 
+        return this.string.slice(0, 2).concat(this.string.slice(this.string.length - 2))
     }
 
     /**
@@ -52,6 +69,10 @@ class StringManipulations {
     * @param  {String} str1  
     * @return {String}
     */
-    fix_start(str1) {}
+    fix_start(str1) {
+        return str1.split("").map((char, index, arr) => index && char === arr[0] ? "*" : char).join("")
+    }
 
 }
+
+module.exports = StringManipulations
