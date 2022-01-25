@@ -1,0 +1,47 @@
+.skillContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.skillContainer Button {
+  width: 84%;
+  height: 3rem;
+  background: transparent;
+  border: 3px solid #fff;
+  border-radius: 3px;
+  font-size: 24px;
+  font-weight: 500;
+  color: #fff;
+}
+.skillContainer Button:hover {
+  cursor: pointer;
+  border-color: purple;
+}
+
+.skillsList {
+  height: 500px;
+  width: 24rem;
+  overflow-y: auto;
+  margin-top: 2rem;
+  box-sizing: border-box;
+}
+
+.skillWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.2rem;
+  border: 4px solid #fff;
+  border-radius: 0.5rem;
+  padding: 1rem 2rem;
+  margin: 0.4rem 2rem;
+  width: 15rem;
+}
+
+.skillWrapper span {
+  font-size: 1rem;
+  color: #fff;
+  font-weight: bold;
+  max-width: 500px;
+  text-overflow: ellipsis;
+}
