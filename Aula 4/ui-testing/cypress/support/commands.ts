@@ -18,8 +18,16 @@
 //
 //
 // -- This is a dual command --
-// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
+// Cypress.Commands.add('dismiss', { prevSubject: 'optional' }, (subject, options) => { return })
 //
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add("getByTestId", (testId: string) =>
+  cy.get(`[data-testid='${testId}']`)
+);
+
+Cypress.Commands.add("getPageTitle", () => cy.getByTestId("page-title"));
+
+Cypress.Commands.add("visitLocalHost", () => cy.visit("localhost:3000"));

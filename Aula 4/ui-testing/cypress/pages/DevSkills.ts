@@ -1,18 +1,16 @@
-import AbstractPage from "./AbstractPage";
-
-class SkillPage extends AbstractPage {
+class SkillPage {
   load() {
-    cy.visit("http://localhost:3000/");
+    cy.visitLocalHost();
 
     return this;
   }
 
   getPageTitle() {
-    return this.getByTestId("page-title");
+    return cy.getPageTitle();
   }
 
   getFormContainer() {
-    return cy.get("[data-testid='skill-container'");
+    return cy.getByTestId("skill-container");
   }
 
   getAllLabels() {
@@ -24,11 +22,11 @@ class SkillPage extends AbstractPage {
   }
 
   getSubmitButton() {
-    return this.getByTestId("btn-add-skill");
+    return cy.getByTestId("btn-add-skill");
   }
 
   getSkillListContainer() {
-    return this.getByTestId("skills-list");
+    return cy.getByTestId("skills-list");
   }
 
   getSkillListContent() {

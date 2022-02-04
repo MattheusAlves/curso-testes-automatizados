@@ -14,7 +14,21 @@
 // ***********************************************************
 
 // Import commands.js using ES2015 syntax:
-import './commands'
+import "./commands";
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
+
+declare global {
+  namespace Cypress {
+    interface Chainable {
+      /**
+       * Custom command to select DOM element by data-cy attribute.
+       * @example cy.dataCy('greeting')
+       */
+      getByTestId(value: string): Cypress.Chainable<JQuery<HTMLElement>>;
+      getPageTitle(): Cypress.Chainable<JQuery<HTMLElement>>;
+      visitLocalHost(): Cypress.Chainable<Cypress.AUTWindow>;
+    }
+  }
+}
