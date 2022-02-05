@@ -1,3 +1,4 @@
+import React from "react";
 import { fireEvent, render, screen } from "@testing-library/react";
 import Input from "./Index";
 
@@ -13,7 +14,6 @@ describe("TextInput", () => {
   });
 
   it("should call onChange when input changes", () => {
-   
     fireEvent.change(screen.getByTestId("input_jest"), {
       target: {
         value: "foo",
