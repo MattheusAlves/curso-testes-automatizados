@@ -3,13 +3,13 @@ name: build-test
 on:
   pull_request:
     paths-ignore:
-      - '**.md'
+      - "**.md"
   push:
     branches:
       - main
       - releases/*
     paths-ignore:
-      - '**.md'
+      - "**.md"
 
 jobs:
   build:
@@ -24,11 +24,9 @@ jobs:
         with:
           node-version: 16.x
           cache: npm
-      - working-directory: ./Aula 5/server
+      - working-directory: ./Aula 4-5-6/client
         run: npm install
-      - working-directory: ./Aula 5/server
+      - working-directory: ./Aula 4-5-6/client
         run: npm run test
-      - working-directory: ./Aula 5/client
-        run: npm install
-      - working-directory: ./Aula 5/client
-        run: npm run test
+      - working-directory: ./Aula 4-5-6/client
+        run: npm run cypress
