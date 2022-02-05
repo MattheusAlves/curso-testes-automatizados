@@ -20,4 +20,5 @@ jobs:
       - working-directory: ./Aula 4-5-6/ui-testing
         run: npm run test
       - working-directory: ./Aula 4-5-6/ui-testing
-        run: npm run cypress
+        run: npm start
+        run: npm run cy:e2e
